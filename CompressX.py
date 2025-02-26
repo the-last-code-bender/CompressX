@@ -1,5 +1,6 @@
 import os
 import zipfile
+import sys
 
 asciiart = """
    _____                                       __   __
@@ -11,7 +12,7 @@ asciiart = """
                        | |                            
                        |_|                            
 
-v1.1.0
+v1.1.1
 Created by Husamettin Eken                       
 """
 
@@ -20,9 +21,12 @@ def find_matching_files(file_extension):
     root_folder = os.getcwd()
     matching_files = []
 
+    # Get the executable filename to exclude it
+    current_exe = os.path.basename(sys.argv[0])
+
     for foldername, _, filenames in os.walk(root_folder):
         for filename in filenames:
-            if filename.endswith(file_extension):
+            if filename.endswith(file_extension) and filename != current_exe:
                 matching_files.append(os.path.join(foldername, filename))
     
     return matching_files

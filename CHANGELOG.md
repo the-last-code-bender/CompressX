@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.1.1] - 2025-02-26
+### Fixed
+- Fixed an issue where the application attempted to compress itself when running as an executable.
+- Now correctly excludes the currently running `.exe` or script file from the compression list.
+- Improved file scanning logic to ensure only target file types are processed.
+---
+
 ## [1.1.0] - 2024-02-25
 ### Added
 - **Working Directory Display:**  
